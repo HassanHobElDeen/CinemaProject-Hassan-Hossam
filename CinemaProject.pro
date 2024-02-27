@@ -18,6 +18,7 @@ SOURCES += \
 HEADERS += \
     loginwindow.h \
     registerwindow.h \
+    userss.h \
     welcomewindow.h
 
 FORMS += \
