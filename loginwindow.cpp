@@ -1,5 +1,7 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
+#include "Users.h"
+#include "welcomewindow.h"
 
 LoginWindow::LoginWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,7 +18,20 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::on_login_push_clicked()
 {
-
+    for(int i=0;i<100;i++)
+    {
+        if((ui ->username -> text()) == usernames[i] && (ui-> password->text())==passwords[i])
+        {
+            hide();
+            WelcomeWindow* p= new WelcomeWindow(this);
+            p->show();
+        }
+        else
+        {
+            ui -> login_status -> setVisible(true);
+            ui ->login_status -> setText("Wrong Username Or Password");
+        }
+    }
 }
 
 
