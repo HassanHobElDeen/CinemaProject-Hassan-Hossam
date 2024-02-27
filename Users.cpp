@@ -1,4 +1,4 @@
-#include "Users.h"
+#include "users.h"
 
 QString usernames[100] = {"admin", "test", "user1", "user2"};
 QString passwords[100] = {"admin", "1234", "1101", "1102"};
