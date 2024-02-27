@@ -2,6 +2,7 @@
 #include "ui_loginwindow.h"
 #include "Users.h"
 #include "welcomewindow.h"
+#include "registerwindow.h"
 
 LoginWindow::LoginWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -37,6 +38,8 @@ void LoginWindow::on_login_push_clicked()
 
 void LoginWindow::on_register_push_clicked()
 {
-
+    hide();
+    RegisterWindow * R = new RegisterWindow(this);
+    R -> show();
 }
 
