@@ -16,9 +16,9 @@ SOURCES += \
     welcomewindow.cpp
 
 HEADERS += \
+    Users.h \
     loginwindow.h \
     registerwindow.h \
-    users.h \
     welcomewindow.h
 
 FORMS += \
