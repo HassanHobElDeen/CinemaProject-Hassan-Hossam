@@ -1,6 +1,7 @@
 #include "registerwindow.h"
 #include "ui_registerwindow.h"
-#include "Users.cpp"
+#include "Users.h"
+
 
 
 RegisterWindow::RegisterWindow(QWidget *parent)
@@ -25,7 +26,7 @@ void RegisterWindow::on_reg_reg_clicked()
     QString str=ui -> month ->currentText();
     QString f=ui->day->text();
     QString r=ui->year->text();
-    QString username =( ui->register_username ->text());
+    QString username1 =( ui->register_username ->text());
     QString pass1=(ui->register_pass->text());
     QString pass2=(ui->register_pass_2->text());
     //int month = str.toInt();
@@ -52,7 +53,7 @@ void RegisterWindow::on_reg_reg_clicked()
 
     for (int i = 0; i < 100 ; i++)
     {
-        if (username != usernames[i])
+        if (username1 != usernames[i])
         {
 
         }
@@ -75,7 +76,7 @@ void RegisterWindow::on_reg_reg_clicked()
         ui -> password_stat -> setText("Passwords Doesnt Match");
     }
 
-    if ((username == " ") || (pass1 == " ") || (pass2 == " ") || (str == " ") || (f == " ") || (r == " "))
+    if ((username1 == " ") || (pass1 == " ") || (pass2 == " ") || (str == " ") || (f == " ") || (r == " "))
     {
         ui ->register_status -> setVisible(true);
         ui -> register_status -> setText("Missing Parameters, Please Fill Them in");
