@@ -32,40 +32,39 @@ void RegisterWindow::on_reg_reg_clicked()
     bool genre = ui->genre->isChecked();
     bool gender = ui->groupBox_gender->isChecked();
 
-    while((username1.isEmpty()) || (pass1.isEmpty()) || (pass2.isEmpty()) || (year.isEmpty()) || (month.isEmpty()) || (day.isEmpty())||(!acctype) || (!genre) || (!gender))
+    // Reset all error messages
+    ui->register_status->setVisible(false);
+    ui->username_stat->setVisible(false);
+    ui->password_stat->setVisible(false);
+
+    if (username1.isEmpty() || pass1.isEmpty() || pass2.isEmpty() || year.isEmpty() || month.isEmpty() || day.isEmpty() || !acctype || !genre || !gender)
     {
-        ui ->register_status -> setVisible(true);
-        ui -> register_status -> setText("Missing Parameters, Please Fill Them in");
+        // Display error message
+        ui->register_status->setVisible(true);
+        ui->register_status->setText("Missing Parameters, Please Fill Them in");
+        return;
     }
-    for (int i = 0; i < 100 ; i++)
+    else if (std::any_of(username1.begin(), username1.end(), [=](const QString& existingUsername) { return existingUsername == username1; }))
     {
-        if (username1 == usernames[i])
-        {
-            ui -> username_stat -> setVisible(true);
-            ui -> username_stat -> setText("Username already exists");
-
-        }
-
-        else
-        {
-            if (pass1 != pass2)
-            {
-                ui -> password_stat -> setVisible(true);
-                ui -> password_stat -> setText("Passwords Doesnt Match");
-            }
-            else
-            {
-                for(int i=usersCount+1;i<100;i++)
-                {
-                    usernames[i]=username1;
-                    passwords[i]=pass1;
-                    ages[i]=2024-year.toInt();
-                    usersCount++;
-                }
-
-            }
-
-        }
+        // Check if username already exists
+        ui->username_stat->setVisible(true);
+        ui->username_stat->setText("Username already exists");
+        return;
+    }
+    else if (pass1 != pass2)
+    {
+        // Check if passwords match
+        ui->password_stat->setVisible(true);
+        ui->password_stat->setText("Passwords Don't Match");
+        return;
+    }
+    else
+    {
+        // Register the user
+        usernames[usersCount] = username1;
+        passwords[usersCount] = pass1;
+        ages[usersCount] = 2024 - year.toInt();
+        usersCount++;
     }
 }
 
