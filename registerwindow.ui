@@ -307,7 +307,7 @@
    <property name="title">
     <string>Favourite Genre(s)</string>
    </property>
-   <widget class="QCheckBox" name="checkBox">
+   <widget class="QCheckBox" name="action">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -320,7 +320,7 @@
      <string>Action</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_2">
+   <widget class="QCheckBox" name="drama">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -333,7 +333,7 @@
      <string>Drama</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_3">
+   <widget class="QCheckBox" name="comedy">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -346,7 +346,7 @@
      <string>Comedy</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_4">
+   <widget class="QCheckBox" name="horror">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -359,7 +359,7 @@
      <string>Horror</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_5">
+   <widget class="QCheckBox" name="romantic">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -372,7 +372,7 @@
      <string>Romance</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="checkBox_6">
+   <widget class="QCheckBox" name="other">
     <property name="geometry">
      <rect>
       <x>100</x>

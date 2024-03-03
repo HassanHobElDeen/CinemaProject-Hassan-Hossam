@@ -29,23 +29,34 @@ void RegisterWindow::on_reg_reg_clicked()
     QString month = ui->month->currentText();
     QString day = ui->day->text();
     QString year = ui->year->text();
+    bool gendermale = ui -> male -> isChecked();
+    bool genderF= ui -> female -> isChecked();
+    bool acctypead = ui -> admin -> isChecked();
+    bool acctypeus = ui -> user -> isChecked();
+    bool action = ui -> action -> isChecked();
+    bool comedy = ui -> comedy -> isChecked();
+    bool romance = ui ->romantic -> isChecked();
+    bool horror = ui -> horror -> isChecked();
+    bool drama = ui -> drama -> isChecked();
+    bool other = ui -> other -> isChecked();
 
-    // Validate user input
-    if (username1.isEmpty() || pass1.isEmpty() || pass2.isEmpty() ||
-        month.isEmpty() || day.isEmpty() || year.isEmpty()) {
+    if
+        (username1.isEmpty() || pass1.isEmpty() || pass2.isEmpty() ||
+        month.isEmpty() || day.isEmpty() || year.isEmpty() ||
+        ((!genderF) && (!gendermale)) || ((!acctypead) && (!acctypeus )) ||
+        ((!action) && (!comedy) && (!romance) && (!horror) && (!drama) && (!other)))
+    {
         ui->register_status->setVisible(true);
         ui->register_status->setText("Missing Parameters, Please Fill Them in");
         return;
     }
 
-    // Check if passwords match
     if (pass1 != pass2) {
         ui->password_stat->setVisible(true);
         ui->password_stat->setText("Passwords Don't Match");
         return;
     }
 
-    // Check if the user is under 12
     int userYear = year.toInt();
     if ((2024 - userYear) < 12) {
         ui->year_status->setVisible(true);
@@ -53,7 +64,6 @@ void RegisterWindow::on_reg_reg_clicked()
         return;
     }
 
-    // Check if the username already exists
     for (int i = 0; i < usersCount; ++i) {
         if (username1 == usernames[i]) {
             ui->username_stat->setVisible(true);
@@ -62,7 +72,6 @@ void RegisterWindow::on_reg_reg_clicked()
         }
     }
 
-    // Register the user
     if (usersCount < 100) {
         usernames[usersCount] = username1;
         passwords[usersCount] = pass1;
@@ -71,7 +80,6 @@ void RegisterWindow::on_reg_reg_clicked()
         ui->register_status->setVisible(true);
         ui->register_status->setText("Registration Successful");
     } else {
-        // Handle array full case
         ui->register_status->setVisible(true);
         ui->register_status->setText("Maximum users reached");
     }
