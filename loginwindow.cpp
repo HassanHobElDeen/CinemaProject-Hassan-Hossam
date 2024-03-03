@@ -19,7 +19,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::on_login_push_clicked()
 {
-    for(int i=0;i<100;i++)
+    for(int i=0;i<usersCount;i++)
     {
         if((ui ->username -> text()) == usernames[i] && (ui-> password->text())==passwords[i])
         {
