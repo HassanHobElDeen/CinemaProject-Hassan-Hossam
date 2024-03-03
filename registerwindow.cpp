@@ -1,6 +1,7 @@
 #include "registerwindow.h"
 #include "ui_registerwindow.h"
 #include "Users.h"
+#include "welcomewindow.h"
 
 
 
@@ -39,10 +40,10 @@ void RegisterWindow::on_reg_reg_clicked()
     bool horror = ui -> horror -> isChecked();
     bool drama = ui -> drama -> isChecked();
     bool other = ui -> other -> isChecked();
-    ui ->username_stat -> setText(" ");
-    ui -> year_status -> setText(" ");
-    ui -> password_stat -> setText(" ");
-    ui -> register_status -> setText(" ");
+    ui ->username_stat -> setVisible(false);
+    ui -> year_status -> setVisible(false);
+    ui -> password_stat -> setVisible(false);
+    ui -> register_status -> setVisible(false);
 
 
     if
@@ -86,9 +87,9 @@ void RegisterWindow::on_reg_reg_clicked()
         passwords[usersCount] = pass1;
         ages[usersCount] = 2024 - userYear;
         ++usersCount;
-        ui->register_status->setVisible(true);
-        ui -> register_status ->setStyleSheet("QLabel {background-color: transparent; color: green;}");
-        ui->register_status->setText("Registration Successful");
+        hide();
+        WelcomeWindow* welc = new WelcomeWindow(username1,(2024-userYear),this);
+        welc -> show();
     } else {
         ui->register_status->setVisible(true);
         ui -> register_status ->setStyleSheet("QLabel {background-color: transparent; color: red;}");
