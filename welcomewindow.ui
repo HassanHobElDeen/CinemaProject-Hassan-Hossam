@@ -43,13 +43,13 @@
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>100</y>
-     <width>49</width>
-     <height>16</height>
+     <y>70</y>
+     <width>181</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="text">
-    <string>TextLabel</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700; color:#ffffff;&quot;&gt;Welcome&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QPushButton" name="logout_push">

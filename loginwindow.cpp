@@ -32,6 +32,7 @@ void LoginWindow::on_login_push_clicked()
         else
         {
             ui -> login_status -> setVisible(true);
+            ui -> login_status ->setStyleSheet("QLabel {background-color: transparent; color: red;}");
             ui ->login_status -> setText("Wrong Username Or Password");
         }
     }
