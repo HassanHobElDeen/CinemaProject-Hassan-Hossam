@@ -1,3 +1,5 @@
 <RCC>
-    <qresource prefix="/new/image1"/>
+    <qresource prefix="/new/image1">
+        <file>cinema pic.jpg</file>
+    </qresource>
 </RCC>
